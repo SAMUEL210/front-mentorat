@@ -52,3 +52,19 @@ label {
     font-weight: 400;
     font-style: italic;
 }
+
+.champs-vides,
+.identifiant-incorrectes,
+.donnees-incorrectes {
+    font-weight: 200;
+    color: red;
+    font-style: italic;
+}
+
+.masque {
+    display: none;
+}
+
+.affiche {
+    display: block;
+}

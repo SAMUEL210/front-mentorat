@@ -1,12 +1,13 @@
 let afficherEntreprises = () => {
     axios({
             method: 'get',
-            url: 'http://localhost:3000/entreprise',
+            url: 'http://localhost:3000/entreprises',
             responseType: 'json'
         })
-        .then(function(response) {
+        .then(function(reponse) {
             select = document.getElementById('entreprises');
-            donnee = response.data.entreprises
+            select.appendChild(document.createElement('option'))
+            donnee = reponse.data.entreprises
             for (var entr in donnee) {
                 var opt = document.createElement('option');
                 opt.value = donnee[entr]._id;
