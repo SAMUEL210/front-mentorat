@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/index.load.js"></script>
+    <script src="./js/index.js" defer></script>
+
+    <title>Bienvenue sur Mentorat FZ</title>
+</head>
+
+<body>
+    <h1 class="title">Bienvenu sur Mentorat de FZ</h1>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-4">
+                <h2 class="titre connexion">CONNEXION</h2>
+                <form action="">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <label for="email">Adresse mail</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="mp" placeholder="Saisissez votre mot de passe">
+                        <label for="mp">Mot de passe</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-success" value="Se connecter">
+                    </div>
+                </form>
+
+            </div>
+            <div class=" col-md-4">
+                <h2 class="titre creer-compte">CREER COMPTE</h2>
+                <form action="">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nom" aria-describedby="nomlHelp" placeholder="Saisisez votre nom">
+                        <label for="nom">Nom</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="prenom" aria-describedby="prenomHelp" placeholder="Saisisez votre prenom">
+                        <label for="prenom">Prenom</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="conf-mp" placeholder="Saisissez votre mot de passe">
+                        <label for="conf-mp">Mot de passe</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="c-mp" placeholder="Confirmez votre mot de passe">
+                        <label for="c-mp">Confirmez mot de passe</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control is-valid" id="poste" placeholder="Saisissez votre mot de passe">
+                        <label for="poste">Votre poste</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="entreprises" id="entreprises" class="form-control">
+                            
+                        </select>
+                        <label for="mp">Choisissez votre entreprise</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-success" value="Valider">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>
