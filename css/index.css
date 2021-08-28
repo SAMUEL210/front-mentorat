@@ -54,10 +54,18 @@ label {
 }
 
 .champs-vides,
+.cr-champs-vides,
+.mp-different,
 .identifiant-incorrectes,
-.donnees-incorrectes {
+.email-incorrectes {
     font-weight: 200;
     color: red;
+    font-style: italic;
+}
+
+.cr-succes {
+    font-weight: 400;
+    color: green;
     font-style: italic;
 }
 
