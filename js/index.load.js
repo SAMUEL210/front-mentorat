@@ -1,7 +1,7 @@
 let afficherEntreprises = () => {
     axios({
             method: 'get',
-            url: 'http://localhost:3000/entreprises',
+            url: 'https://api-simarone-fusecrum.herokuapp.com/entreprises',
             responseType: 'json'
         })
         .then(function(reponse) {

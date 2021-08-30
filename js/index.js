@@ -43,7 +43,7 @@ validerConnexion.addEventListener('click', (e) => {
 
         axios({
                 method: 'post',
-                url: 'http://localhost:3000/login',
+                url: 'https://api-simarone-fusecrum.herokuapp.com/login',
                 data: {
                     email: email.value,
                     mp: mp.value
@@ -62,7 +62,13 @@ validerConnexion.addEventListener('click', (e) => {
                     identifiantsIncorrectes.classList.remove('affiche')
                     identifiantsIncorrectes.classList.add('masque')
 
-                    window.location = './accueil/index.html'
+                    localStorage.setItem(
+                        "x-access-token",
+                        reponse.headers.authorization
+                    );
+                    sessionStorage.setItem("utilisateur", reponse.data.id);
+                    window.location.replace("./accueil/index.html");
+
                 }
             });
     }
@@ -155,7 +161,7 @@ validerCreerCompte.addEventListener('click', (e) => {
 
             axios({
                     method: 'post',
-                    url: 'http://localhost:3000/utilisateurs',
+                    url: 'https://api-simarone-fusecrum.herokuapp.com/utilisateurs',
                     data: {
                         nom: nom.value,
                         prenom: prenom.value,
