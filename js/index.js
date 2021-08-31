@@ -11,6 +11,7 @@ var checkbox = document.getElementById("afficher-mp");
 // Creer compte
 const nom = document.getElementById('nom')
 const prenom = document.getElementById('prenom')
+const description = document.getElementById('description')
 const crEmail = document.getElementById('cr-email')
 const crMp = document.getElementById('cr-mp')
 const confMp = document.getElementById('conf-cr-mp')
@@ -62,7 +63,7 @@ validerConnexion.addEventListener('click', (e) => {
                     identifiantsIncorrectes.classList.remove('affiche')
                     identifiantsIncorrectes.classList.add('masque')
 
-                    localStorage.setItem(
+                    sessionStorage.setItem(
                         "x-access-token",
                         reponse.headers.authorization
                     );
@@ -77,9 +78,8 @@ validerConnexion.addEventListener('click', (e) => {
 
 validerCreerCompte.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('Clcik creer-compte')
 
-    if (nom.value == "" || prenom.value == "" || crEmail.value == "" || crMp.value === "" || confMp.value == "" || poste.value == "" || entreprises == "") {
+    if (nom.value == "" || prenom.value == "" || description.value == '' || crEmail.value == "" || crMp.value === "" || confMp.value == "" || poste.value == "" || entreprises == "") {
         crChampsVides.classList.remove('masque')
         crChampsVides.classList.add('affiche')
 
@@ -95,6 +95,12 @@ validerCreerCompte.addEventListener('click', (e) => {
         else {
             prenom.classList.remove('is-invalid')
             prenom.classList.add('is-valid')
+        }
+        if (description.value == "")
+            description.classList.add('is-invalid')
+        else {
+            description.classList.remove('is-invalid')
+            description.classList.add('is-valid')
         }
 
         if (crEmail.value == "")
@@ -132,17 +138,19 @@ validerCreerCompte.addEventListener('click', (e) => {
             entreprises.classList.add('is-valid')
         }
 
-    } else if (nom.value != "" && prenom.value != "" && crEmail.value != "" && crMp.value != "" && confMp.value != "" && poste.value != "" && entreprises.value != "") {
+    } else if (nom.value != "" && prenom.value != "" && description.value != "" && crEmail.value != "" && crMp.value != "" && confMp.value != "" && poste.value != "" && entreprises.value != "") {
         crChampsVides.classList.remove('affiche')
         crChampsVides.classList.add('masque')
 
         nom.classList.remove('is-invalid')
         prenom.classList.remove('is-invalid')
+        description.classList.remove('is-invalid')
         poste.classList.remove('is-invalid')
         entreprises.classList.remove('is-invalid')
 
         nom.classList.add('is-valid')
         prenom.classList.add('is-valid')
+        description.classList.add('is-valid')
         poste.classList.add('is-valid')
         entreprises.classList.add('is-valid')
 
@@ -165,6 +173,7 @@ validerCreerCompte.addEventListener('click', (e) => {
                     data: {
                         nom: nom.value,
                         prenom: prenom.value,
+                        description: description.value,
                         email: crEmail.value,
                         mp: crMp.value,
                         poste: poste.value,
@@ -183,6 +192,7 @@ validerCreerCompte.addEventListener('click', (e) => {
                     } else {
                         nom.classList.remove('is-valid')
                         prenom.classList.remove('is-valid')
+                        description.classList.remove('is-valid')
                         crEmail.classList.remove('is-invalid')
                         crMp.classList.remove('is-valid')
                         confMp.classList.remove('is-valid')
@@ -194,6 +204,7 @@ validerCreerCompte.addEventListener('click', (e) => {
 
                         nom.value = ''
                         prenom.value = ''
+                        description.value = ''
                         crEmail.value = ''
                         crMp.value = ''
                         confMp.value = ''
