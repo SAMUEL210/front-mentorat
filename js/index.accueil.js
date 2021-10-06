@@ -1,7 +1,8 @@
 if (!(sessionStorage.getItem('utilisateur') && sessionStorage.getItem('x-access-token'))) {
     window.location.replace('../index.html')
 } else {
-    var deconexion = document.querySelector('.deconexion')
+
+
 
     const titre = document.querySelector('.titre')
     const collegues = document.querySelector('.collegues')
@@ -41,7 +42,7 @@ if (!(sessionStorage.getItem('utilisateur') && sessionStorage.getItem('x-access-
                                 let form = document.createElement('form')
                                 let input = document.createElement('input')
                                 let button = document.createElement('input')
-                                console.log(ut)
+
                                 p.innerHTML = "" + ut.prenom + ' ' + ut.nom + ', ' + ut.poste + ' à ' + response.data.entreprises.nom
                                 p.className = 'p-collegues'
                                 div.appendChild(p)
@@ -50,7 +51,6 @@ if (!(sessionStorage.getItem('utilisateur') && sessionStorage.getItem('x-access-
                                 input.type = 'text'
                                 input.value = ut.entreprise_id
                                 form.appendChild(input)
-
 
                                 button.value = 'Voir plus'
                                 button.type = 'submit'
@@ -62,21 +62,24 @@ if (!(sessionStorage.getItem('utilisateur') && sessionStorage.getItem('x-access-
                                 div.style.display = 'flex'
                                 div.style.justifyContent = 'space-between'
                                 div.className = 'div-collegues breadcrumb'
-
-
                             })
                         }
-
-
                     }
                 });
         });
 
-
+    axios({
+            method: 'get',
+            url: 'https://api-simarone-fusecrum.herokuapp.com/contrats/',
+            headers: {
+                'x-access-token': sessionStorage.getItem('x-access-token')
+            },
+            responseType: 'json'
+        })
+        .then(function(reponse) {
+            for (contrat of reponse.data.contrats) {
+                if (contrat.mentorId != sessionStorage.getItem('utilisateur')) {}
+            }
+        })
 
 }
-
-deconexion.addEventListener('click', (e) => {
-    sessionStorage.clear()
-    window.location.replace('../index.html')
-})
